@@ -1,4 +1,4 @@
-package tools.guns;
+package tools.weapon;
 
 public class Sword extends Weapon {
 

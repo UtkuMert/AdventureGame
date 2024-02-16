@@ -1,3 +1,6 @@
+package player;
+
+import inventory.Inventory;
 import warrior.Archer;
 import warrior.Knight;
 import warrior.Samurai;
@@ -8,18 +11,29 @@ import java.util.Scanner;
 public class Player {
 
     private String userName;
-
+    private Scanner scan = new Scanner(System.in);
     private String warriorName;
     private int damage;
     private int health;
     private int coin;
 
+    private Inventory inventory;
+
     public Player(String userName) {
         this.userName = userName;
+        this.inventory = new Inventory();
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 
     public void selectWarrior() {
-        Scanner scan = new Scanner(System.in);
+
         boolean isSelected = true;
         System.out.println("Now, time to select your warrior!");
 
@@ -54,9 +68,16 @@ public class Player {
                     isSelected = true;
             }
         }
-
+        this.info();
     }
 
+    public void info (){
+        System.out.println("--------------------------");
+        System.out.println("Damage: " + this.getDamage() +
+                "\nHealth: " + this.getHealth() +
+                "\nCoin: " + this.getCoin() + "\nWeapon: " + this.getInventory().getWeapon().getName());
+        System.out.println("--------------------------");
+    }
     public void addWarriorAttrToPlayer(Warrior warrior) {
         setWarriorName(warrior.getName());
         setDamage(warrior.getDamage());
@@ -73,15 +94,18 @@ public class Player {
     }
 
     public int getDamage() {
-        return damage;
+
+        return damage + this.getInventory().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
+
         this.damage = damage;
     }
 
     public int getHealth() {
-        return health;
+
+        return health + this.getInventory().getArmor().getIgnoreDamage();
     }
 
     public void setHealth(int health) {
