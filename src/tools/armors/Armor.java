@@ -3,13 +3,13 @@ package tools.armors;
 public class Armor {
     private String name;
     private int id;
-    private int ignoreDamage;
+    private int block;
     private int price;
 
     public Armor(String name, int id, int ignoreDamage, int price) {
         this.name = name;
         this.id = id;
-        this.ignoreDamage = ignoreDamage;
+        this.block = ignoreDamage;
         this.price = price;
     }
 
@@ -43,12 +43,12 @@ public class Armor {
         this.id = id;
     }
 
-    public int getIgnoreDamage() {
-        return ignoreDamage;
+    public int getBlock() {
+        return block;
     }
 
-    public void setIgnoreDamage(int ignoreDamage) {
-        this.ignoreDamage = ignoreDamage;
+    public void setBlock(int block) {
+        this.block = block;
     }
 
     public int getPrice() {

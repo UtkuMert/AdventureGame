@@ -6,6 +6,7 @@ public abstract class Monster {
     private int id;
     private int damage;
     private int health;
+    private int defaultHealth;
 
     private int reward;
 
@@ -15,6 +16,7 @@ public abstract class Monster {
         this.id = id;
         this.damage = damage;
         this.health = health;
+        this.defaultHealth = health;
         this.reward = reward;
     }
 
@@ -24,6 +26,14 @@ public abstract class Monster {
 
     public void setReward(int reward) {
         this.reward = reward;
+    }
+
+    public int getDefaultHealth() {
+        return defaultHealth;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
     }
 
     public String getName() {
@@ -55,6 +65,9 @@ public abstract class Monster {
     }
 
     public void setHealth(int health) {
+        if(health < 0) {
+            this.health = 0;
+        }
         this.health = health;
     }
 }

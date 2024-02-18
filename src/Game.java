@@ -1,4 +1,7 @@
 import location.Location;
+import location.battleLocation.Cave;
+import location.battleLocation.Forest;
+import location.battleLocation.River;
 import location.safeLocation.SafeHouse;
 import location.safeLocation.ToolStore;
 import player.Player;
@@ -28,7 +31,7 @@ public class Game {
             player.info();
 
             System.out.println("Where do you wanna go?");
-            System.out.println("1 - Safe House \n2 - Tool Store");
+            System.out.println("1 - Safe House \n2 - Tool Store \n3 - Cave \n4 - River \n5 - Forest");
             int selectLocation = input.nextInt();
             switch (selectLocation){
                 case 1:
@@ -37,8 +40,17 @@ public class Game {
                 case 2:
                     location = new ToolStore(player);
                     break;
+                case 3:
+                    location = new Cave(player);
+                    break;
+                case 4:
+                    location = new River(player);
+                    break;
+                case 5:
+                    location = new Forest(player);
+                    break;
                 default:
-                    location = new SafeHouse(player);
+                    System.out.println("Go Back !!");
 
             }
 
