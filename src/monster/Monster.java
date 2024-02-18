@@ -7,12 +7,23 @@ public abstract class Monster {
     private int damage;
     private int health;
 
+    private int reward;
 
-    public Monster(String name, int id, int damage, int health) {
+
+    public Monster(String name, int id, int damage, int health,int reward) {
         this.name = name;
         this.id = id;
         this.damage = damage;
         this.health = health;
+        this.reward = reward;
+    }
+
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
     }
 
     public String getName() {
